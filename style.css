@@ -98,7 +98,7 @@ button{
         max-width: 500px;
         flex-direction: column-reverse;
         align-items: center;
-        gap: 50px;
+        gap: 60px;
     }
 
     .col{
@@ -111,5 +111,9 @@ button{
     .col{
         height: 90px;
         width: 90px;
+    }
+
+    h1{
+        font-size: 30px;
     }
 }
