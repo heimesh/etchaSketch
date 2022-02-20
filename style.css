@@ -1,38 +1,47 @@
 body{
-    background-color: rgb(33, 35, 44);
+    background-color: rgb(237,237,237);
     font-family: 'Kulim Park', sans-serif;
+    margin: 0;
 }
 
-footer{
+#footer{
     text-align: center;
-    color: white;
-    margin-top: 50px;
-    font-weight: 500;
+    color: rgb(39,39,39);
     font-size: 20px;
+
 }
 
 h1{
-    color: aliceblue;
+    color: rgb(61, 61, 61);
     text-align: center;
     margin-top: 20px;
     font-weight: 700;
     font-style: italic;
-    font-size: 50px;
-
+    font-size: 55px;
 }
 
 button{
     margin: 10px;
-    background-color: rgb(18, 22, 37);
-    border: none;
-    color: rgb(231, 229, 229);
+    background-color: rgb(237,237,237);
+    border: solid 1px rgb(39,39,39);
+    color: rgb(39,39,39);
     text-align: center;
     font-size: 16px;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
-    font-weight: 700;
-    font-style: italic;
+    font-weight: 600;
     width: 150px;
+}
+
+button:focus{
+    background-color: rgb(39,39,39);
+    color: rgb(231, 229, 229);
+}
+
+button:hover {
+    transform: scale(1.1) perspective(1px);
+    -webkit-transform: scale(1.1);
+    transition: all ease;
 }
 
 .container{
@@ -60,14 +69,12 @@ button{
 
 .grid{
     display: grid;
-    max-width: 550px;
-    grid-template-columns: repeat(4, 1fr);
+    width: 500px;
+    height: 500px;
+    box-shadow: 1px 1px 10px rgb(143, 143, 143);
 }
 
 .col{
-    height: 120px;
-    width: 120px;
-    border: 1px black solid;
     background-color: rgb(255, 255, 255);
 }
 
@@ -88,31 +95,16 @@ button{
     }
 }
 
-
 @media (max-width: 730px) {
-    .grid{
-        max-width: 500px;
-    }
-
     .container{
         max-width: 500px;
         flex-direction: column-reverse;
         align-items: center;
         gap: 60px;
     }
-
-    .col{
-        height: 100px;
-        width: 100px;
-    }
 }
 
 @media (max-width: 440px) {
-    .col{
-        height: 90px;
-        width: 90px;
-    }
-
     h1{
         font-size: 30px;
     }

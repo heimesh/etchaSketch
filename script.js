@@ -1,19 +1,19 @@
-let grid= document.querySelector('.grid');
+const defaultSize = 16;
 
+let grid = document.querySelector('.grid');
 
-function createDiv(){
-    let gridBox = document.createElement('div');
-    gridBox.classList.add('col');
-    gridBox.style.width = "50px";
-    gridBox.style.height = "50px";
-};
+/*Creates a grid */
+function makeGrid(size) {
+    grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
+    grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
+  
+    for (let i = 0; i < size * size; i++) {
+      const gridElement = document.createElement('div');
+      gridElement.classList.add("col")
+      grid.appendChild(gridElement)
+    }
+}
 
-function createGrid(){
-    for(let i = 0; i < 8; i++){
-        for(let j = 0; j < 8; j++){
-            grid.appendChild(createDiv());
-        };
-    };
-};
-
-createGrid();
+window.onload = () => {
+    makeGrid(defaultSize);
+  }
