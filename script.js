@@ -1,11 +1,13 @@
 const defaultSize = 16;
-let colorPicked
+let colorPicked = "#000000";
 
 let grid = document.querySelector('.grid');
-let erase = document.querySelector('.erase');
-let colorBtn = document.querySelector('.colorBtn');
-let clear = document.querySelector('.clear');
 let color = document.querySelector('#color');
+let colorBtn = document.querySelector('.colorBtn');
+let rainbow = document.querySelector('.rainbow');
+let erase = document.querySelector('.erase');
+let shading = document.querySelector('.shading');
+let clear = document.querySelector('.clear');
 
 
 /*Creates a grid */
@@ -32,10 +34,20 @@ color.addEventListener('input', () => {
   colorPicked = color.value;
 });
 
+
+
 colorBtn.addEventListener('click', function(){
   gridBox.forEach( gridBox => {
-    gridBox.addEventListener("mousedown", e =>{
-      e.target.style.backgroundColor = "colorPicked";
+    gridBox.addEventListener("click", e =>{
+      e.target.style.backgroundColor = colorPicked;
+    });
+  });
+});
+
+rainbow.addEventListener('click', function(){
+  gridBox.forEach( gridBox => {
+    gridBox.addEventListener("click", e =>{
+      e.target.style.backgroundColor = colorPicked;
     });
   });
 });
