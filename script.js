@@ -1,13 +1,14 @@
-const defaultSize = 16;
-let colorPicked = "#000000";
+let colorPicked = "#393939";
+let sliderVal = 16;
+let gridBox;
 
 let grid = document.querySelector('.grid');
 let color = document.querySelector('#color');
 let colorBtn = document.querySelector('.colorBtn');
 let rainbow = document.querySelector('.rainbow');
 let erase = document.querySelector('.erase');
-let shading = document.querySelector('.shading');
 let clear = document.querySelector('.clear');
+let slider = document.querySelector('.slider');
 
 
 /*Creates a grid */
@@ -19,26 +20,29 @@ function makeGrid(size) {
       const gridElement = document.createElement('div');
       gridElement.classList.add("col");
       grid.appendChild(gridElement);
+      gridBox = document.querySelectorAll('.col');
     }
 }
 
-/*window.onload = () => {
-    makeGrid(defaultSize);
-}*/
+makeGrid(sliderVal);
 
-makeGrid(16);
+slider.addEventListener('input', () => {
+  sliderVal = slider.value;
+  makeGrid(sliderVal);
+  gridBox.forEach(gridBox => {
+    gridBox.style.backgroundColor = "#FFFFFF";
+  })
+});
 
-const gridBox = document.querySelectorAll('.col');
 
 color.addEventListener('input', () => {
   colorPicked = color.value;
 });
 
 
-
 colorBtn.addEventListener('click', function(){
   gridBox.forEach( gridBox => {
-    gridBox.addEventListener("click", e =>{
+    gridBox.addEventListener("mouseover", e =>{
       e.target.style.backgroundColor = colorPicked;
     });
   });
@@ -46,15 +50,18 @@ colorBtn.addEventListener('click', function(){
 
 rainbow.addEventListener('click', function(){
   gridBox.forEach( gridBox => {
-    gridBox.addEventListener("click", e =>{
-      e.target.style.backgroundColor = colorPicked;
+    gridBox.addEventListener("mouseover", e =>{
+    const randomR = Math.floor(Math.random() * 256);
+    const randomG = Math.floor(Math.random() * 256);
+    const randomB = Math.floor(Math.random() * 256);
+    e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
     });
   });
 });
 
 erase.addEventListener("click", function(){
   gridBox.forEach( gridBox => {
-    gridBox.addEventListener("click", e =>{
+    gridBox.addEventListener("mouseover", e =>{
       e.target.style.backgroundColor = "white";
     });
   });
