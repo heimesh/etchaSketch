@@ -5,11 +5,14 @@ body{
 }
 
 #footer{
-    text-align: center;
     color: rgb(39,39,39);
     font-size: 20px;
-    height: 20px;
-    padding-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 50px;
+    margin-bottom: 10px;
 }
 
 h1{
@@ -107,6 +110,10 @@ input[type='range']::-webkit-slider-thumb {
 #color{
     width: 150px;
     border: none;
+}
+
+#footer img{
+    width: 25px;
 }
 
 /*Media queries*/
